@@ -14,7 +14,7 @@ def setup_pybind11(cfg):
     )
     cfg['compiler_args'] = (
         cfg.get('compiler_args', []) +
-        ['-std=c++11']
+        (['-std=c++11'] if os.name == 'posix' else [])
     )
 
 def run_templating(module_data):
